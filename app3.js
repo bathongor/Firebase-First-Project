@@ -1,6 +1,6 @@
  (function (){
 
-     var config = {
+     const config = {
 		 apiKey: "AIzaSyByiVZCx2lMwJerAGR6TkgLXhozKvEwrO8",
 	    authDomain: "silent-relic-219002.firebaseapp.com",
     	databaseURL: "https://silent-relic-219002.firebaseio.com",
@@ -11,20 +11,22 @@
   		firebase.initializeApp(config);
 
     //Get elements
-    var btnLogin = document.getElementById('btnLogin');
-    var btnLogout = document.getElementById('btnLogout');
-
+    const btnLogin = document.getElementById('btnLogin');
+    const btnLogout = document.getElementById('btnLogout');
+	
     //Click login event listener
     btnLogin.addEventListener('click', e=> {
         firebase.auth().signInAnonymously();
-        alert("You have logged in anonymously!");
-
+        alert("You have logged in anonymously! Wait until 'Logout' option appears");
+        //setTimeout('Redirect()', 3000);
+        //function Redirect(){window.location = '3 tasks.html';}
+        
     });
 
     //Click logout event listener
     btnLogout.addEventListener('click', e=>{
         firebase.auth().signOut();
-        alert("You have successfully logged out!");
+        alert("You have successfully logged out! Wait until 'Login Anonymously' option appears");
     });
 
     //Auth listener
@@ -38,5 +40,8 @@
             btnLogin.classList.remove('hidden');
         }
     });
-
+	
  }());
+
+
+
